@@ -8,7 +8,10 @@ public class MultidimensionalArrays {
         int num = sc.nextInt();
         System.out.println("Cuantos asignaturas hay -> ");
         int asig = sc.nextInt();
-        String[][] notas = new String[asig][num];
+        String[][] notas = new String[asig + 1][num + 1];
+        notas[0][0] = "";
+        nombres(notas);
+        asignaturas(notas);
         autofill(notas);
 
         for(int b = 0; b < notas.length; b++){
@@ -33,12 +36,27 @@ public class MultidimensionalArrays {
 
     public static void autofill(String[][] notas) {
         double result = 0;
-        for(int col = 0; col < notas.length; col++){
-            for(int fil = 0; fil < notas[1].length; fil++){
+        for(int col = 1; col < notas.length; col++){
+            for(int fil = 1; fil < notas[1].length; fil++){
                 result = Math.round(Math.random()*1000);
                 notas[col][fil] = "" + result/100;
             }
         }
+    }
 
+    public static void nombres(String[][] notas) {
+        Scanner sc = new Scanner(System.in);
+        for(int col = 1; col < notas[1].length; col++){
+            System.out.println("Escribe el " + (col) + " alumno");
+            notas[0][col] = sc.nextLine();
+        }
+    }
+
+    public static void asignaturas(String[][] notas) {
+        Scanner sc = new Scanner(System.in);
+        for(int fil = 1; fil < notas.length; fil++){
+            System.out.println("Escribe la " + (fil) + " asignatura");
+            notas[fil][0] = sc.nextLine();
+        }
     }
 }
