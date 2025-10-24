@@ -14,6 +14,7 @@ public class MultidimensionalArrays {
         asignaturas(notas);
         autofill(notas);
 
+
         for(int b = 0; b < notas.length; b++){
             for(int i = 0; i < notas[1].length; i++){
                 System.out.print(notas[b][i] + "\t");
@@ -23,7 +24,26 @@ public class MultidimensionalArrays {
 
         System.out.println("");
 
-        show(notas);
+        //show(notas);  // <- OTRA FORMA DE MOSTRAR LA TABLA DE ARRAYS
+
+        media(notas);
+
+    }
+
+    private static void media(String[][] notas) {
+        float sum = 0;
+        float media = 0;
+        for(int col = 1; col < notas[1].length; col++){
+            for(int fil = 1; fil < notas.length; fil++){
+                sum += Float.parseFloat(notas[fil][col]);
+            }
+            media = sum / (notas.length-1);
+            System.out.println("La media de " + notas[0][col] + " " +media + " y el total sumado es " + sum);
+            sum = 0;
+        }
+
+
+
 
     }
 
@@ -59,4 +79,6 @@ public class MultidimensionalArrays {
             notas[fil][0] = sc.nextLine();
         }
     }
+
+
 }
