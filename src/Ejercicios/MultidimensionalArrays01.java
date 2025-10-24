@@ -1,3 +1,5 @@
+package Ejercicios;
+
 public class MultidimensionalArrays01 {
     public static void main(String[] args) {
         int num = 10;

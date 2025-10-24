@@ -1,3 +1,5 @@
+package Ejercicios;
+
 public class test {
     public static void main(String[] args) {
         System.out.println(test1(new int[]{1,2,3,4,100}));
@@ -37,5 +39,5 @@ public class test {
 
 
 
-//test activo
+//Ejercicios.test activo
 
