@@ -1,35 +1,16 @@
 package Proyecto1Evalucion;
 
-import java.util.Scanner;
-
-public class Proyecto {
+public class testss {
     public static void main(String[] args) {
-        int num = 0;
-        Scanner sc = new Scanner(System.in);
         char[][] tablero = new char[11][11];
-        char[][] tableroDisparos = new char[11][11];
-        char[][] tableroPC = new char[11][11];
-        char[][] tableroDisparosJugador = new char[11][11];
         inicializarTablero(tablero);
-        inicializarTablero(tableroPC);
-        inicializarTablero(tableroDisparos);
-        inicializarTablero(tableroDisparosJugador);
-        colocarBarcosPC(tablero, new int[]{4, 2, 4});
-        visualizarTablero(tablero, tableroDisparosJugador);
-        visualizarTablero(tableroPC, tableroDisparos);
-        while((disparoJugador(tablero, tableroDisparosJugador))){
-            visualizarTablero(tablero, tableroDisparosJugador);
-            //visualizarTablero(tableroPC, tableroDisparos); //PREGUNTAR COMO TIENE QUE IR 4 TABLEROS 2 PARA CADA JUGADOR UNO DE BARCOS Y UNO DE DISPAROS SI ES ASI CAMBIAR EL METODO DE DISPARO DE JUGADOR
-            if(disparoJugador(tablero, tableroDisparosJugador)){
-                visualizarTablero(tablero, tableroDisparosJugador);
-                //visualizarTablero(tableroPC, tableroDisparos);
-            }
+        for(int i = 0; i < 10; i++){
+            colocarBarcosPC(tablero, new int[]{4, 2, 4});
+            visualizarTablero(tablero, tablero);
+            tablero = new char[11][11];
+            inicializarTablero(tablero);
         }
-    }
 
-    public static void borrarPantalla() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
     }
 
     public static void inicializarTablero(char[][] tablero){
@@ -60,24 +41,6 @@ public class Proyecto {
         }
     }
 
-    public static boolean disparoJugador (char[][] tableroPC , char[][] tableroDisparosJugador){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Elige una letra entre la A - J y un numero entre el 0 - 9");
-        String disparo = sc.nextLine().toUpperCase();
-        if(tableroPC[disparo.charAt(0) - 'A'][(disparo.charAt(1)+1) - '0'] == 'B'){
-            tableroDisparosJugador[disparo.charAt(0) - 'A'][(disparo.charAt(1)+1) - '0'] = 'T';
-            return true;
-        }
-        else if(tableroPC[disparo.charAt(0) - 'A'][(disparo.charAt(1)+1) - '0'] == '~'){
-            tableroDisparosJugador[disparo.charAt(0) - 'A'][(disparo.charAt(1)+1) - '0'] = 'X';
-            return true;
-        }
-        else{
-            System.out.println("Error");
-            return false;
-        }
-    }
-
     public static void colocarBarcosPC(char[][] tablero, int[] barcos){
         int fil;
         int col;
@@ -100,9 +63,6 @@ public class Proyecto {
 
         }
     }
-    public static void colocarBarcosJugador(char[][] tablero, int[] barcos){
-        //PREGUNTAR COMO HACER NO SE -> PARECIDO AL DE ARRIBA SEGURO
-    }
 
     public static boolean cabeBarco(char[][] tablero, int longitudBarco, int fila, int columna, int orientacion){
         boolean valor = true;
@@ -123,6 +83,32 @@ public class Proyecto {
         }
         else{
             return true;
+        }
+    }
+
+    private static void pruebas() {
+        String[][] letter = new String[11][11];
+        char letra = (char)(Math.random() * 6);
+        char[][] tablero = new char[11][11];
+        char pos2;
+        char b = '8';
+        int longitudBarco = 2;
+        System.out.println((('9') - b)+1);
+        if(longitudBarco > (10-b)){
+            System.out.println("false");
+        }
+
+        //System.out.println(letra);
+        for(int i = 0; i < 10; i++){
+
+            System.out.println((int)(Math.random()*2)  + " SUma *2");
+            letra = (char)(((Math.random() + 'A') + (Math.random()*10)));
+            pos2 = (char)(Math.random()*10);
+            System.out.print(letra + "  ");
+            System.out.println((int)pos2);
+        }
+        for(int i = 'A'; i < 'J'; i++){
+            System.out.println(i);
         }
     }
 }
