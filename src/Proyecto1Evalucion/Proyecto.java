@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Proyecto {
     public static void main(String[] args) {
-        int num = 0;
         Scanner sc = new Scanner(System.in);
         char[][] tablero = new char[11][11];
         char[][] tableroDisparos = new char[11][11];
@@ -80,6 +79,7 @@ public class Proyecto {
         int fil;
         int col;
         int verhor;
+        int cantidad = barcos.length;
         for (int i = 0; i < barcos.length; i++) {
                 fil = (int) (Math.random() * 10);
                 col = (int) ((Math.random() * 10) + 1);
@@ -98,7 +98,7 @@ public class Proyecto {
     }// 0 -> horizontal 1 -> vertical
 
     public static void colocarBarcosJugador(char[][] tablero, int[] barcos) {
-        //PREGUNTAR COMO HACER NO SE -> PARECIDO AL DE ARRIBA SEGURO
+
     }
 
     public static boolean cabeBarco(char[][] tablero, int longitudBarco, int fila, int columna, int orientacion) {
