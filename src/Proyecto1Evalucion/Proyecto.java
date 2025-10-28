@@ -4,19 +4,30 @@ import java.util.Scanner;
 
 public class Proyecto {
     public static void main(String[] args) {
+        borrarPantalla();
         Scanner sc = new Scanner(System.in);
         char[][] tablero = new char[11][11];
         char[][] tableroDisparos = new char[11][11];
         char[][] tableroPC = new char[11][11];
         char[][] tableroDisparosJugador = new char[11][11];
+        int[] barcos = new int[]{2,2,2};
+        int[] contador = new int[2];
         inicializarTablero(tablero);
         inicializarTablero(tableroDisparos);
         inicializarTablero(tableroPC);
         inicializarTablero(tableroDisparosJugador);
-        colocarBarcosPC(tableroPC, new int[]{2,4,4,6});
+        colocarBarcosPC(tableroPC, barcos);
         visualizarTablero(tablero, tableroDisparosJugador);
         visualizarTablero(tableroPC, tableroDisparos);
-
+        while(sumaCeldas(barcos) != contador[1] && sumaCeldas(barcos) != contador[0]){
+            disparoJugador(tableroPC, tableroDisparosJugador);
+            borrarPantalla();
+            contadorDeTocados(tablero, tableroPC, contador);
+            visualizarTablero(tablero, tableroDisparosJugador);
+            visualizarTablero(tableroPC, tableroDisparos);
+        }
+        borrarPantalla();
+        System.out.println("FIN");
     }
 
     public static void borrarPantalla() {
@@ -55,15 +66,37 @@ public class Proyecto {
         System.out.println();
     }
 
+    public static int[] contadorDeTocados(char[][] tablero, char[][] tableroPC, int[] contador){
+        contador[0] = 0;
+        contador[1] = 0;
+        for(int fil = 0; fil < tablero.length; fil++){
+            for(int col = 1; col < tablero[1].length; col++){
+                if(tablero[fil][col] == 'T'){
+                    contador[0] ++;
+                }
+            }
+        }
+        for(int fil = 0; fil < tableroPC.length; fil++){
+            for(int col = 1; col < tableroPC[1].length; col++){
+                if(tableroPC[fil][col] == 'T'){
+                    contador[1] ++;
+                }
+            }
+        }
+        return contador;
+    }
+
     public static boolean disparoJugador(char[][] tableroPC, char[][] tableroDisparosJugador) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Elige una letra entre la A - J y un numero entre el 0 - 9");
         String disparo = sc.nextLine().toUpperCase();
         if (tableroPC[disparo.charAt(0) - 'A'][(disparo.charAt(1) + 1) - '0'] == 'B') {
             tableroDisparosJugador[disparo.charAt(0) - 'A'][(disparo.charAt(1) + 1) - '0'] = 'T';
+            tableroPC[disparo.charAt(0) - 'A'][(disparo.charAt(1) + 1) - '0'] = 'T';
             return true;
         } else if (tableroPC[disparo.charAt(0) - 'A'][(disparo.charAt(1) + 1) - '0'] == '~') {
             tableroDisparosJugador[disparo.charAt(0) - 'A'][(disparo.charAt(1) + 1) - '0'] = 'X';
+            tableroPC[disparo.charAt(0) - 'A'][(disparo.charAt(1) + 1) - '0'] = 'X';
             return true;
         } else {
             System.out.println("Error");
@@ -130,5 +163,14 @@ public class Proyecto {
             }
         }
         return valor;
+    }
+
+    public static int sumaCeldas(int[] unVector){
+        int sum;
+        sum = 0;
+        for(int i = 0; i < unVector.length; i++){
+            sum += unVector[i];
+        }
+        return sum;
     }
 }
