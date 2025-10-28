@@ -10,21 +10,25 @@ public class Proyecto {
         char[][] tableroDisparos = new char[11][11];
         char[][] tableroPC = new char[11][11];
         char[][] tableroDisparosJugador = new char[11][11];
-        int[] barcos = new int[]{2,2,2};
+        int[] barcos = new int[]{2,2};
         int[] contador = new int[2];
         inicializarTablero(tablero);
         inicializarTablero(tableroDisparos);
         inicializarTablero(tableroPC);
         inicializarTablero(tableroDisparosJugador);
-        colocarBarcosPC(tableroPC, barcos);
         visualizarTablero(tablero, tableroDisparosJugador);
-        visualizarTablero(tableroPC, tableroDisparos);
+        //visualizarTablero(tableroPC, tableroDisparos);
+        colocarBarcosPC(tableroPC, barcos);
+        colocarBarcosJugador(tablero, barcos);
+        visualizarTablero(tablero, tableroDisparosJugador);
+        //visualizarTablero(tableroPC, tableroDisparos);
         while(sumaCeldas(barcos) != contador[1] && sumaCeldas(barcos) != contador[0]){
             disparoJugador(tableroPC, tableroDisparosJugador);
+            disparoPC(tableroDisparos, tablero);
             borrarPantalla();
             contadorDeTocados(tablero, tableroPC, contador);
             visualizarTablero(tablero, tableroDisparosJugador);
-            visualizarTablero(tableroPC, tableroDisparos);
+            //visualizarTablero(tableroPC, tableroDisparos);
         }
         borrarPantalla();
         System.out.println("FIN");
@@ -104,6 +108,36 @@ public class Proyecto {
         }
     }
 
+    public static boolean disparoPC(char[][] tableroDisparosPC, char[][] tableroJugador){
+        int num1 = 0;
+        int num2 = 0;
+        boolean vacio = true;
+
+        do{
+            num1 = (int)(Math.random()*10);
+            num2 = (int)((Math.random()*10));
+            if(tableroDisparosPC[num1][num2] != '~'){
+                vacio = false;
+            }
+            else{
+                vacio = true;
+            }
+        }while(!vacio);
+        if(tableroJugador[num1][num2] == 'B'){
+            tableroDisparosPC[num1][num2] = 'T';
+            tableroJugador[num1][num2] = 'T';
+            return true;
+        }
+        else if(tableroJugador[num1][num2] == '~'){
+            tableroDisparosPC[num1][num2] = 'X';
+            tableroJugador[num1][num2] = 'X';
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     public static void colocarBarcosPC(char[][] tablero, int[] barcos) {
         int fil;
         int col;
@@ -143,8 +177,54 @@ public class Proyecto {
     }// 0 -> horizontal 1 -> vertical
 
     public static void colocarBarcosJugador(char[][] tablero, int[] barcos) {
+        int fil;
+        int col;
+        String pos;
+        int verhor;
+        Scanner sc = new Scanner(System.in);
+        boolean puesto = false;
+        for(int i = 0; i < barcos.length; i++){
+            System.out.println("El barco " + (i+1) + " mide " + barcos[i] + " casillas");
+            System.out.println("Para el barco en vertical -> 1. Para en horizontal -> 0");
+            verhor = sc.nextInt();
+            sc.nextLine();
+            if(verhor == 0){
+                do{
+                    System.out.println("Escribe la posicion donde va a empezar tu barco ");
+                    pos = sc.nextLine().toUpperCase();
+                    fil = (pos.charAt(0) - 'A');
+                    col = (pos.charAt(1) - '0')+1;
+                    if(cabeBarco(tablero, barcos[i], fil, col, verhor)){
+                        tablero[fil][col] = 'B';
+                        for(int b = 0; b < barcos[i]; b++){
+                            tablero[fil][col+b] = 'B';
+                            puesto = true;
+                        }
+                        visualizarTablero(tablero, tablero);
+                    }
+                }while(!puesto);
+                puesto = false;
+            }
+            else if(verhor == 1){
+                do{
+                    System.out.println("Escribe la posicion donde va a empezar tu barco ");
+                    pos = sc.nextLine().toUpperCase();
+                    fil = (pos.charAt(0) - 'A');
+                    col = (pos.charAt(1) - '0')+1;
+                    if(cabeBarco(tablero, barcos[i], fil, col, verhor)){
+                        tablero[fil][col] = 'B';
+                        for(int b = 0; b < barcos[i]; b++){
+                            tablero[fil+b][col] = 'B';
+                            puesto = true;
+                        }
+                        visualizarTablero(tablero, tablero);
+                    }
+                }while(!puesto);
+                puesto = false;
+            }
+        }
+    }// 0 -> horizontal 1 -> vertical
 
-    }
 
     public static boolean cabeBarco(char[][] tablero, int longitudBarco, int fila, int columna, int orientacion) {
         boolean valor = true;
@@ -174,3 +254,6 @@ public class Proyecto {
         return sum;
     }
 }
+
+
+// cabe barco para mi es ver si hay colision y mi cabe barco esta integrado en colocar barco si no entra te vuelve a pedir dato.
