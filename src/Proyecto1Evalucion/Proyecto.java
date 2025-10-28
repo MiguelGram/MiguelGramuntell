@@ -10,20 +10,13 @@ public class Proyecto {
         char[][] tableroPC = new char[11][11];
         char[][] tableroDisparosJugador = new char[11][11];
         inicializarTablero(tablero);
-        inicializarTablero(tableroPC);
         inicializarTablero(tableroDisparos);
+        inicializarTablero(tableroPC);
         inicializarTablero(tableroDisparosJugador);
-        colocarBarcosPC(tablero, new int[]{4, 2, 4});
+        colocarBarcosPC(tableroPC, new int[]{2,4,4,6});
         visualizarTablero(tablero, tableroDisparosJugador);
         visualizarTablero(tableroPC, tableroDisparos);
-        while ((disparoJugador(tablero, tableroDisparosJugador))) {
-            visualizarTablero(tablero, tableroDisparosJugador);
-            //visualizarTablero(tableroPC, tableroDisparos); //PREGUNTAR COMO TIENE QUE IR 4 TABLEROS 2 PARA CADA JUGADOR UNO DE BARCOS Y UNO DE DISPAROS SI ES ASI CAMBIAR EL METODO DE DISPARO DE JUGADOR
-            if (disparoJugador(tablero, tableroDisparosJugador)) {
-                visualizarTablero(tablero, tableroDisparosJugador);
-                //visualizarTablero(tableroPC, tableroDisparos);
-            }
-        }
+
     }
 
     public static void borrarPantalla() {
@@ -46,17 +39,20 @@ public class Proyecto {
         tablero[tablero.length - 1][0] = ' ';
     }
 
-    public static void visualizarTablero(char[][] tableroDisparos, char[][] tablero) {
+    public static void visualizarTablero(char[][] tablero, char[][] tableroDisparos) {
 
         for (int fil = 0; fil < tablero.length; fil++) {
             for (int col = 0; col < tablero[1].length; col++) {
-                System.out.print(tablero[fil][col] + "\t");
+                System.out.print(tablero[fil][col] + "  ");
             }
+            System.out.print("\t");
             for (int col = 0; col < tableroDisparos[1].length; col++) {
-                System.out.print(tableroDisparos[fil][col] + "\t");
+                System.out.print(tableroDisparos[fil][col] + "  ");
             }
             System.out.println();
         }
+        System.out.println();
+        System.out.println();
     }
 
     public static boolean disparoJugador(char[][] tableroPC, char[][] tableroDisparosJugador) {
@@ -79,21 +75,37 @@ public class Proyecto {
         int fil;
         int col;
         int verhor;
-        int cantidad = barcos.length;
-        for (int i = 0; i < barcos.length; i++) {
-                fil = (int) (Math.random() * 10);
-                col = (int) ((Math.random() * 10) + 1);
-                verhor = (int) (Math.random() * 2); // 1 -> vertical 0 -> horizontal
-                if (cabeBarco(tablero, barcos[i], fil, col, verhor)) {
-                    for (int b = 0; b < barcos[i]; b++) {
+        boolean puesto = false;
+        for(int i = 0; i < barcos.length; i++){
+            verhor = (int)(Math.random()*2);
+            if(verhor == 0){
+                do{
+                    fil = (int)(Math.random()*10);
+                    col = (int)((Math.random()*(10-barcos[i]))+1);
+                    if(cabeBarco(tablero, barcos[i], fil, col, verhor)){
                         tablero[fil][col] = 'B';
-                        if (verhor == 0) {
-                            col++;
-                        } else {
-                            fil++;
+                        for(int b = 0; b < barcos[i]; b++){
+                            tablero[fil][col+b] = 'B';
+                            puesto = true;
                         }
                     }
-                }
+                }while(!puesto);
+                puesto = false;
+            }
+            else{
+                do{
+                    fil = (int)(Math.random()*(10-barcos[i]));
+                    col = (int)(Math.random()*10);
+                    if(cabeBarco(tablero, barcos[i], fil, col, verhor)){
+                        tablero[fil][col] = 'B';
+                        for(int b = 0; b < barcos[i]; b++){
+                            tablero[fil+b][col] = 'B';
+                            puesto = true;
+                        }
+                    }
+                }while(!puesto);
+                puesto = false;
+            }
         }
     }// 0 -> horizontal 1 -> vertical
 
@@ -103,42 +115,20 @@ public class Proyecto {
 
     public static boolean cabeBarco(char[][] tablero, int longitudBarco, int fila, int columna, int orientacion) {
         boolean valor = true;
-        for (int i = 9, b = 10; i > longitudBarco; i--, b--) {
-            if (orientacion == 1) {
-                if (fila == i && longitudBarco > (9 - i + 1)) {
-                    valor = false;
-                }
-
-            } else if (orientacion == 0) {
-                if (columna == b && longitudBarco > (10 - b + 1)) {
+        if(orientacion == 1){
+            for(int x = 0; x < longitudBarco; x++) {
+                if (tablero[fila + x][columna] != '~') {
                     valor = false;
                 }
             }
         }
-        if (!valor) {
-            valor = false;
-        } else if(valor){
-            if(orientacion == 1){
-                for(int x = 0; x < longitudBarco-1; x++) {
-                    if (tablero[fila + x][columna] != '~') {
-                        valor = false;
-                    }
-                }
-            }
-            else if (orientacion == 0) {
-                for(int x = 0; x < longitudBarco-1; x++) {
-                    if (tablero[fila][columna+x] != '~') {
-                        valor = false;
-                    }
+        else if (orientacion == 0) {
+            for(int x = 0; x < longitudBarco; x++) {
+                if (tablero[fila][columna + x] != '~') {
+                    valor = false;
                 }
             }
         }
         return valor;
     }
-
-    public static boolean colocarBarco(char[][] tablero, int longitudBarco, int fila, int columna, int orientacion, boolean jugador) {
-        return true;
-    }
-
-
 }

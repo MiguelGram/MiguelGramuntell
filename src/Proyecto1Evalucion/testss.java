@@ -4,12 +4,8 @@ public class testss {
     public static void main(String[] args) {
         char[][] tablero = new char[11][11];
         inicializarTablero(tablero);
-        for(int i = 0; i < 10; i++){
-            colocarBarcosPC(tablero, new int[]{4, 2, 4});
-            visualizarTablero(tablero, tablero);
-            tablero = new char[11][11];
-            inicializarTablero(tablero);
-        }
+        colocarBarcosPC(tablero, new int[]{4, 2, 4});
+        visualizarTablero(tablero, tablero);
 
     }
 
@@ -46,44 +42,50 @@ public class testss {
         int col;
         int verhor;
         for(int i = 0; i < barcos.length; i++){
-            fil = (int)(Math.random()*10);
-            col = (int)((Math.random()*10)+1);
-            verhor = (int)(Math.random()*2); // 1 -> vertical 0 -> horizontal
-            if(cabeBarco(tablero, barcos[i], fil, col, verhor)){
-                for(int b = 0; b < barcos[i]; b++){
+            verhor = (int)(Math.random()*2);
+            if(verhor == 0){
+                fil = (int)(Math.random()*10);
+                col = (int)((Math.random()*(10-barcos[i]))+1);
+                if(cabeBarco(tablero, barcos[i], fil, col, verhor)){
                     tablero[fil][col] = 'B';
-                    if(verhor == 0){
-                        col++;
+                    for(int b = 0; b < barcos[i]; b++){
+                        tablero[fil][col+b] = 'B';
                     }
-                    else{
-                        fil++;
+                }
+
+            }
+            else{
+                fil = (int)(Math.random()*(10-barcos[i]));
+                col = (int)(Math.random()*10);
+                if(cabeBarco(tablero, barcos[i], fil, col, verhor)){
+                    tablero[fil][col] = 'B';
+                    for(int b = 0; b < barcos[i]; b++){
+                        tablero[fil+b][col] = 'B';
                     }
                 }
             }
-
         }
     }
 
     public static boolean cabeBarco(char[][] tablero, int longitudBarco, int fila, int columna, int orientacion){
         boolean valor = true;
-        for(int i = 9, b = 10; i > longitudBarco; i--, b--){
-            if(orientacion == 1){
-                if(fila == i && longitudBarco > (9-i+1)){
+        if(orientacion == 1){
+            for(int x = 0; x < longitudBarco-1; x++) {
+                if (tablero[fila + x][columna] != '~') {
                     valor = false;
-                }
-            }
-            else if(orientacion == 0){
-                if(columna ==  b && longitudBarco > (10-b+1)){
-                    valor =  false;
+                    break;
                 }
             }
         }
-        if(!valor){
-            return false;
+        else if (orientacion == 0) {
+            for(int x = 0; x < longitudBarco-1; x++) {
+                if (tablero[fila][columna + x] != '~') {
+                    valor = false;
+                    break;
+                }
+            }
         }
-        else{
-            return true;
-        }
+        return valor;
     }
 
     private static void pruebas() {
