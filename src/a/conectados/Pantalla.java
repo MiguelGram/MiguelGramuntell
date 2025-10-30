@@ -1,4 +1,4 @@
-package conectados;
+package a.conectados;
 
 import com.diogonunes.jcolor.Attribute;
 

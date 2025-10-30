@@ -1,4 +1,4 @@
-package conectados;
+package a.conectados;
 
 import java.util.Scanner;
 
@@ -45,15 +45,17 @@ public class Entrada {
     public static char obtenerLetra(String mensaje){
         Scanner sc = new Scanner(System.in);
         String texto;
-        Pantalla.mostrarPantalla(mensaje);
         do{
             texto = obtenerTexto(mensaje);
             if(texto.length() != 1){
                 Pantalla.mostrarError("Debes introducir un solo caracter");
             }
-        }while(texto.length()!=1);
+            else if(texto.charAt(0) < 'A' || texto.charAt(0) > 'Z'){
+                Pantalla.mostrarError("Desbes introducir una letra");
+            }
+        }while((texto.length()!=1) || (texto.charAt(0) < 'A' || texto.charAt(0) > 'Z'));
 
-        return sc.nextLine().charAt(0);
+        return texto.charAt(0);
     }
 
     public static char obtenerLetra(char min, char max, String mensaje){
