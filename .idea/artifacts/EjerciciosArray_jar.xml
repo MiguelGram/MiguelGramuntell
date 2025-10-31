@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="EjerciciosArray:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/EjerciciosArray_jar</output-path>
+    <root id="archive" name="EjerciciosArray.jar">
+      <element id="module-output" name="EjerciciosArray" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/diogonunes/JColor/5.5.1/JColor-5.5.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

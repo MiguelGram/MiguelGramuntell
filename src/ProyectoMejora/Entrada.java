@@ -1,7 +1,5 @@
 package ProyectoMejora;
 
-import a.conectados.Pantalla;
-
 import java.util.Scanner;
 
 public class Entrada {

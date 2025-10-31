@@ -6,13 +6,13 @@ public class Juego {
         char[][] tableroDisparosPC = new char[10][10];
         char[][] tablero = new char[10][10];
         char[][] tableroDisparos = new char[10][10];
-        int[] barcos = new int[]{2,4,4,3};
+        int[] barcos = new int[]{2,4,4,3,5};
         Pantalla.inicializar(tableroPC);
         Pantalla.inicializar(tablero);
         Pantalla.inicializar(tableroDisparosPC);
         Pantalla.visualizar(tableroPC, tableroDisparosPC);
         Pantalla.visualizar(tablero, tableroDisparos);
-        Entrada.colocarBarcos(tablero, barcos);
+        //Entrada.colocarBarcos(tablero, barcos);
         Entrada.colocarBarcosPC(tableroPC, barcos);
         Pantalla.visualizar(tableroPC, tableroDisparosPC);
     }
