@@ -25,5 +25,6 @@ public class Juego {
             Entrada.contadorDeTocados(tablero, tableroPC, contador);
         }while(Entrada.sumaCeldas(barcos) != contador[1] && Entrada.sumaCeldas(barcos) != contador[0]);
         Pantalla.mostrarError("Tenemos un ganador!!");
+
     }
 }
