@@ -147,4 +147,77 @@ public class Entrada {
             ProyectoMejora.Pantalla.visualizar(tablero, tablero);
         }
     }
+    public static boolean disparosPC(char[][] tablero, char[][] tableroDisparosPC){
+        int num1 = 0;
+        int num2 = 0;
+        boolean vacio = true;
+
+        do{
+            num1 = numeroRandom();
+            num2 = numeroRandom();
+            if(tableroDisparosPC[num1][num2] != '~'){
+                vacio = false;
+            }
+            else{
+                vacio = true;
+            }
+        }while(!vacio);
+        if(tablero[num1][num2] == 'B'){
+            tableroDisparosPC[num1][num2] = 'T';
+            tablero[num1][num2] = 'T';
+            return true;
+        }
+        else if(tablero[num1][num2] == '~'){
+            tableroDisparosPC[num1][num2] = 'X';
+            tablero[num1][num2] = 'X';
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public static boolean disparosJugador(char[][] tableroPC, char[][] tableroDisparosJugador){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Elige una letra entre la A - J y un numero entre el 0 - 9");
+        String disparo = sc.nextLine().toUpperCase();
+        if (tableroPC[disparo.charAt(0) - 'A'][(disparo.charAt(1)) - '0'] == 'B') {
+            tableroDisparosJugador[disparo.charAt(0) - 'A'][(disparo.charAt(1)) - '0'] = 'T';
+            tableroPC[disparo.charAt(0) - 'A'][(disparo.charAt(1)) - '0'] = 'T';
+            return true;
+        } else if (tableroPC[disparo.charAt(0) - 'A'][(disparo.charAt(1)) - '0'] == '~') {
+            tableroDisparosJugador[disparo.charAt(0) - 'A'][(disparo.charAt(1)) - '0'] = 'X';
+            tableroPC[disparo.charAt(0) - 'A'][(disparo.charAt(1)) - '0'] = 'X';
+            return true;
+        } else {
+            System.out.println("Error");
+            return false;
+        }
+    }
+    public static int sumaCeldas(int[] unVector){
+        int sum;
+        sum = 0;
+        for(int i = 0; i < unVector.length; i++){
+            sum += unVector[i];
+        }
+        return sum;
+    }
+    public static int[] contadorDeTocados(char[][] tablero, char[][] tableroPC, int[] contador){
+        contador[0] = 0;
+        contador[1] = 0;
+        for(int fil = 0; fil < tablero.length; fil++){
+            for(int col = 1; col < tablero[1].length; col++){
+                if(tablero[fil][col] == 'T'){
+                    contador[0] ++;
+                }
+            }
+        }
+        for(int fil = 0; fil < tableroPC.length; fil++){
+            for(int col = 1; col < tableroPC[1].length; col++){
+                if(tableroPC[fil][col] == 'T'){
+                    contador[1] ++;
+                }
+            }
+        }
+        return contador;
+    }
 }

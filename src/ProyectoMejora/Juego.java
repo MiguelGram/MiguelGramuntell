@@ -6,14 +6,24 @@ public class Juego {
         char[][] tableroDisparosPC = new char[10][10];
         char[][] tablero = new char[10][10];
         char[][] tableroDisparos = new char[10][10];
-        int[] barcos = new int[]{2,4,4,3};
+        int[] barcos = new int[]{2,3};
+        int[] contador = new int[2];
         Pantalla.inicializar(tableroPC);
         Pantalla.inicializar(tablero);
         Pantalla.inicializar(tableroDisparosPC);
+        Pantalla.inicializar(tableroDisparos);
         Pantalla.visualizar(tableroPC, tableroDisparosPC);
         Pantalla.visualizar(tablero, tableroDisparos);
         Entrada.colocarBarcos(tablero, barcos);
         Entrada.colocarBarcosPC(tableroPC, barcos);
-        Pantalla.visualizar(tableroPC, tableroDisparosPC);
+        do{
+            //Pantalla.visualizar(tableroPC, tableroDisparosPC);
+            Entrada.disparosJugador(tableroPC, tableroDisparos);
+            Entrada.disparosPC(tablero, tableroDisparosPC);
+            Pantalla.visualizar(tablero, tableroDisparos);
+            Pantalla.visualizar(tableroPC, tableroDisparosPC);
+            Entrada.contadorDeTocados(tablero, tableroPC, contador);
+        }while(Entrada.sumaCeldas(barcos) != contador[1] && Entrada.sumaCeldas(barcos) != contador[0]);
+        Pantalla.mostrarError("Tenemos un ganador!!");
     }
 }
