@@ -6,6 +6,7 @@ public class EntradaC {
         num = (int)(Math.random()*7);
         return num;
     }
+
     public static void cabeFicha(char[][] tablero, int pos, char pieza){
         if(tablero[0][pos] == '_'){
             if(tablero[1][pos] == '_'){

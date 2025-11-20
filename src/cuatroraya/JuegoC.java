@@ -16,6 +16,7 @@ public class JuegoC {
             System.out.println();
             PantallaC.visualizar(tablero);
             i++;
+
         }
     }
 }

@@ -14,6 +14,7 @@ public class PantallaC {
                 System.out.print(tablero[i][x] + "  ");
             }
             System.out.println();
+
         }
     }
 }
