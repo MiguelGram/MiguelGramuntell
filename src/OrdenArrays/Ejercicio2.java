@@ -7,7 +7,6 @@ public class Ejercicio2 {
         String[][] alturas = new String[][]{
                 {"Juan", "luisa", "Carmen", "Teresa"},
                 {"1.7", "1.65", "1.69", "1.82"}
-
         };
 
         //ordenAlfa(alturas);
