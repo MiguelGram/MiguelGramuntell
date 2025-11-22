@@ -1,6 +1,6 @@
 body{
+    background-color: rgb(144, 139, 139);
 }
-
 header{
     border: 1px solid red;
     text-align: center;
@@ -13,17 +13,12 @@ nav{
 }
 a{
     text-decoration: none;
-    color: black;
-}
-button{
-    margin-right:1%;
-    border: 1px solid blue;
-    border-radius: 8px;
+    color: rgb(251, 251, 251);
 }
 .main{
     border: 1px solid yellow;
     background-image: url(/img/fondoP.jpg);
-    height: 100vh;
+    height: auto;
     background-size: cover;
     color: white;
     background-position: center;
@@ -40,7 +35,8 @@ button{
     z-index: 1;
 }
 .promo{
-    margin-top: 2%;
+    margin-top: 15vh;
+    margin-bottom: 15vh;
     border: 1px solid red;
     text-align: center;
     align-items: center;
@@ -55,6 +51,100 @@ button{
 .promoh1{
     max-width: 30vw;
     border: 1px solid blue;
-    font-size: 25px;
+    font-size: 3vh;
     text-align: center;
+    margin-right: 2%;
+}
+.menu{
+    margin-right:1%;
+    border: 1px solid blue;
+    border-radius: 8px;
+    width: 10vw;
+    height: 3vh;
+    background-color: rgb(70, 70, 70);
+
+}
+.menu:hover{
+    background-color: rgb(167, 234, 249);
+}
+h1{
+    color: rgb(255, 255, 255);
+}
+.newsletter{
+    border: 2px solid blue; 
+    background-color: lightgray;
+    justify-content: center;
+    text-align: center;
+    margin-top: 2vh;
+}
+h3{
+    font-weight: 500;
+    font-size: medium;
+}
+.destacados{
+    border: 1px solid violet;
+    background-color: grey;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    text-align: center;
+}
+.destacados2{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: auto;
+}
+.desh1{
+    text-align: center;
+    margin: 0;
+    padding: 1vh; 
+}
+.carta{
+    height: auto;
+    border: 2px solid rgb(39, 38, 38);
+    border-radius: 5%;
+    width: 20vw;
+    margin: 5vh;
+    text-align: center;
+    justify-content: center;
+    padding: 1vh;
+}
+.imgcarta{
+    height: auto;
+    width: 20vw;
+    border-radius: 5%;
+   
+}
+.ulcarta{
+    padding: 0;
+    padding-bottom: 2vh;
+    font-size: small;
+}
+.CTAcarta{
+    height: auto;
+    width: 20vw;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.CTAbutton{
+    justify-content: center;
+    width: 5vw;
+    height: 5vh;
+    font-weight: 800;
+    font-size: 100%;
+}
+.CTAbutton:hover{
+    justify-content: center;
+    width: 6vw;
+    height: 6vh;
+    font-weight: 800;
+    font-size: 100%;
+    background-color: rgb(244, 211, 211);
+}
+.destacados3{
+    width: 50%;
+    display: flex;
 }
