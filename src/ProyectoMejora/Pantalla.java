@@ -43,6 +43,9 @@ public class Pantalla {
         System.out.println(colorize("Error!!", Attribute.TEXT_COLOR(255,0,0)));
         System.out.println(colorize(mensajeError, Attribute.TEXT_COLOR(255,0,0)));
     }
+    public static void ganador(String ganador){
+        System.out.println(colorize(ganador, Attribute.TEXT_COLOR(0,255,0)));
+    }
     public static void tableronums(){
         System.out.print("   ");
         for(int i = 0; i < 10; i++){
