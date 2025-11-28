@@ -2,9 +2,22 @@ body {
     background-color: rgb(144, 139, 139);
 }
 
-header {
-    text-align: center;
-    margin-top: 1%;
+.header1 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(2, auto);
+}
+
+.header{
+    grid-column: 3 / 4;
+    grid-row: 1;
+    height: auto;
+}
+.logo1{
+    grid-column: 5 / 6;
+    grid-row: 1;
+    height: 80px;
 }
 
 nav {
