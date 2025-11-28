@@ -1,19 +1,23 @@
-body{
+body {
     background-color: rgb(144, 139, 139);
 }
-header{
+
+header {
     text-align: center;
     margin-top: 1%;
 }
-nav{
+
+nav {
     text-align: center;
     margin-top: 1%;
 }
-a{
+
+a {
     text-decoration: none;
     color: rgb(251, 251, 251);
 }
-.main{
+
+.main {
     background-image: url(/img/fondoP.jpg);
     height: auto;
     background-size: cover;
@@ -21,18 +25,21 @@ a{
     padding: 5vh;
     background-position: center;
 }
-.main::before{
+
+.main::before {
     content: "";
     position: absolute;
     inset: 0;
-     background: rgba(0, 0, 0, 0.5);
-     z-index: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
 }
-.main *{
+
+.main * {
     position: relative;
     z-index: 1;
 }
-.promo{
+
+.promo {
     margin-top: 15vh;
     margin-bottom: 15vh;
     padding-bottom: 4vh;
@@ -41,19 +48,22 @@ a{
     justify-content: center;
     display: flex;
 }
-.promoimg{
+
+.promoimg {
     max-width: 40vw;
     max-height: 40vh;
     margin-right: 2%;
 }
-.promoh1{
+
+.promoh1 {
     max-width: 30vw;
     font-size: 3vh;
     text-align: center;
     margin-right: 2%;
 }
-.menu{
-    margin-right:1%;
+
+.menu {
+    margin-right: 1%;
     border: 1px solid rgb(136, 136, 161);
     border-radius: 8px;
     width: 10vw;
@@ -61,13 +71,27 @@ a{
     background-color: rgb(70, 70, 70);
 
 }
-.menu:hover{
+
+.menu23{
+    display: inline-block;
+    margin-right: 1%;
+    border: 1px solid rgb(88, 88, 88);
+    border-radius: 2px;
+    width: 80px;
+    height: 3vh;
+    background-color: rgb(155, 115, 115);
+    place-content: center;
+}
+
+.menu:hover {
     background-color: rgb(167, 234, 249);
 }
-h1{
+
+h1 {
     color: rgb(255, 255, 255);
 }
-.newsletter{
+
+.newsletter {
     height: 6vh;
     background-color: lightgray;
     display: flex;
@@ -75,32 +99,38 @@ h1{
     justify-content: center;
     margin-top: 2vh;
 }
-h2{
+
+h2 {
     height: 5vh;
 }
-h3{
+
+h3 {
     font-weight: 500;
     font-size: medium;
 }
-.destacados{
+
+.destacados {
     background-color: grey;
     margin-top: 2vh;
     margin-bottom: 2vh;
     padding: 2vh;
     text-align: center;
 }
-.destacados2{
+
+.destacados2 {
     display: flex;
     justify-content: center;
     text-align: center;
     width: auto;
 }
-.desh1{
+
+.desh1 {
     text-align: center;
     margin: 0;
-    padding: 1vh; 
+    padding: 1vh;
 }
-.carta{
+
+.carta {
     height: auto;
     border: 2px solid rgb(255, 255, 255);
     border-radius: 5%;
@@ -111,26 +141,30 @@ h3{
     padding: 1vh;
     background-color: rgb(117, 113, 113);
 }
-.imgcarta{
+
+.imgcarta {
     height: 30vh;
     width: 20vw;
     object-fit: cover;
     object-position: 50% 50%;
     border-radius: 5%;
 }
-.imgcartamod1{
+
+.imgcartamod1 {
     height: 30vh;
     width: 20vw;
     object-fit: cover;
     object-position: 50% 80%;
     border-radius: 5%;
 }
-.ulcarta{
+
+.ulcarta {
     padding: 0;
     padding-bottom: 2vh;
     font-size: small;
 }
-.CTAcarta{
+
+.CTAcarta {
     height: auto;
     width: 20vw;
     margin-bottom: 5vh;
@@ -139,14 +173,16 @@ h3{
     align-items: center;
     justify-content: center;
 }
-.CTAbutton{
+
+.CTAbutton {
     justify-content: center;
     width: 5vw;
     height: 5vh;
     font-weight: 800;
-    font-size: 100%;
+    font-size: 85%;
 }
-.CTAbutton:hover{
+
+.CTAbutton:hover {
     justify-content: center;
     width: 6vw;
     height: 6vh;
@@ -154,7 +190,15 @@ h3{
     font-size: 100%;
     background-color: rgb(244, 211, 211);
 }
-.destacados3{
+
+.destacados3 {
     width: 50%;
     display: flex;
+}
+
+footer {
+    margin-top: 2%;
+    margin-bottom: 1%;
+    text-align: center;
+    background-color: rgb(151, 148, 148);
 }

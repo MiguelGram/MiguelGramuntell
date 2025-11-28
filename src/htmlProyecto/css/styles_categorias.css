@@ -1,31 +1,37 @@
 html {
     scroll-behavior: smooth;
-}  
-main{
+}
+
+main {
     text-align: center;
     justify-content: center;
 }
-body{
+
+body {
     background-color: rgb(121, 104, 104);
 }
-.especial{
+
+.especial {
     position: fixed;
     font-size: 190%;
     bottom: 10%;
     right: 3%;
 }
-h1{
+
+h1 {
     text-align: center;
 }
-.menu1{
+
+.menu1 {
     text-align: center;
-    display:grid;
+    display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-gap: 10px;
     grid-auto-rows: minmax(3vh, auto);
 }
-.one{
-    grid-column: 3 / 4; 
+
+.one {
+    grid-column: 3 / 4;
     grid-row: 1;
     background-color: rgb(158, 158, 158);
     display: flex;
@@ -33,17 +39,9 @@ h1{
     justify-content: center;
     border-radius: 10px;
 }
-.two{
-    grid-column: 4 / 5; 
-    grid-row: 1;
-    background-color:rgb(158, 158, 158);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-}
-.three{
-    grid-column: 5 / 6;    
+
+.two {
+    grid-column: 4 / 5;
     grid-row: 1;
     background-color: rgb(158, 158, 158);
     display: flex;
@@ -51,8 +49,9 @@ h1{
     justify-content: center;
     border-radius: 10px;
 }
-.four{
-    grid-column: 6 / 7; 
+
+.three {
+    grid-column: 5 / 6;
     grid-row: 1;
     background-color: rgb(158, 158, 158);
     display: flex;
@@ -60,7 +59,18 @@ h1{
     justify-content: center;
     border-radius: 10px;
 }
-.five{
+
+.four {
+    grid-column: 6 / 7;
+    grid-row: 1;
+    background-color: rgb(158, 158, 158);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.five {
     grid-column: 8 / 9;
     grid-row: 1;
     width: 5vw;
@@ -70,22 +80,25 @@ h1{
     justify-content: center;
     border-radius: 40px;
 }
-.main2{
+
+.main2 {
     text-align: center;
     justify-content: center;
-    margin-top: 5vh; 
+    margin-top: 5vh;
     margin-bottom: 5vh;
 }
-.menu2{
+
+.menu2 {
     text-align: center;
-    display:grid;
+    display: grid;
     grid-template-columns: repeat(9, 1fr);
     grid-gap: 10px;
     grid-auto-rows: minmax(3vh, auto);
 
 }
-.one2{
-    grid-column: 3 / 4; 
+
+.one2 {
+    grid-column: 3 / 4;
     grid-row: 1;
     background-color: lightgrey;
     display: flex;
@@ -93,8 +106,9 @@ h1{
     justify-content: center;
     padding: 1vh;
 }
-.one2:hover{
-    grid-column: 3 / 4; 
+
+.one2:hover {
+    grid-column: 3 / 4;
     grid-row: 1;
     background-color: rgb(138, 138, 138);
     display: flex;
@@ -102,16 +116,18 @@ h1{
     justify-content: center;
     padding: 1vh;
 }
-.two2{
-    grid-column: 4 / 5; 
+
+.two2 {
+    grid-column: 4 / 5;
     grid-row: 1;
     background-color: lightgrey;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.two2:hover{
-    grid-column: 4 / 5; 
+
+.two2:hover {
+    grid-column: 4 / 5;
     grid-row: 1;
     background-color: rgb(138, 138, 138);
     display: flex;
@@ -119,16 +135,18 @@ h1{
     justify-content: center;
     padding: 1vh;
 }
-.three2{
-    grid-column: 5 / 6; 
+
+.three2 {
+    grid-column: 5 / 6;
     grid-row: 1;
     background-color: lightgrey;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.three2:hover{
-    grid-column: 5 / 6; 
+
+.three2:hover {
+    grid-column: 5 / 6;
     grid-row: 1;
     background-color: rgb(138, 138, 138);
     display: flex;
@@ -136,16 +154,18 @@ h1{
     justify-content: center;
     padding: 1vh;
 }
-.four2{
-    grid-column: 6 / 7; 
+
+.four2 {
+    grid-column: 6 / 7;
     grid-row: 1;
     background-color: lightgrey;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.four2:hover{
-    grid-column: 6 / 7; 
+
+.four2:hover {
+    grid-column: 6 / 7;
     grid-row: 1;
     background-color: rgb(138, 138, 138);
     display: flex;
@@ -153,7 +173,8 @@ h1{
     justify-content: center;
     padding: 1vh;
 }
-.five2{
+
+.five2 {
     grid-column: 7 / 8;
     grid-row: 1;
     background-color: lightgrey;
@@ -161,8 +182,9 @@ h1{
     align-items: center;
     justify-content: center;
 }
-.five2:hover{
-    grid-column: 7 / 8; 
+
+.five2:hover {
+    grid-column: 7 / 8;
     grid-row: 1;
     background-color: rgb(138, 138, 138);
     display: flex;
@@ -170,133 +192,150 @@ h1{
     justify-content: center;
     padding: 1vh;
 }
-a{
+
+a {
     text-decoration: none;
     color: black;
     width: auto;
 }
-.imgtabla{
+
+.imgtabla {
     height: 20vh;
     width: 10vw;
     object-fit: cover;
     object-position: 50% 60%;
     border-radius: 1%;
 }
-.todosmenus{
+
+.todosmenus {
     text-align: center;
-    display:grid;
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
     grid-auto-rows: minmax(3vh, auto);
 }
-.table1{
-    grid-column: 2 / 3; 
+
+.table1 {
+    grid-column: 2 / 3;
     grid-row: 2;
     background-color: lightgrey;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.table2{
-    grid-column: 3 / 4; 
+
+.table2 {
+    grid-column: 3 / 4;
     grid-row: 2;
     background-color: lightgrey;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.table3{
-    grid-column: 2 / 3; 
+
+.table3 {
+    grid-column: 2 / 3;
     grid-row: 4;
     background-color: lightgrey;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.table4{
-    grid-column: 3 / 4; 
+
+.table4 {
+    grid-column: 3 / 4;
     grid-row: 4;
     background-color: lightgrey;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.table5{
-    grid-column: 2 / 3; 
+
+.table5 {
+    grid-column: 2 / 3;
     grid-row: 6;
     background-color: lightgrey;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.table6{
-    grid-column: 3 / 4; 
+
+.table6 {
+    grid-column: 3 / 4;
     grid-row: 6;
     background-color: lightgrey;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.table7{
-    grid-column: 2 / 3; 
+
+.table7 {
+    grid-column: 2 / 3;
     grid-row: 8;
     background-color: lightgrey;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.table8{
-    grid-column: 3 / 4; 
+
+.table8 {
+    grid-column: 3 / 4;
     grid-row: 8;
     background-color: lightgrey;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.table9{
-    grid-column: 2 / 3; 
+
+.table9 {
+    grid-column: 2 / 3;
     grid-row: 10;
     background-color: lightgrey;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.table10{
-    grid-column: 3 / 4; 
+
+.table10 {
+    grid-column: 3 / 4;
     grid-row: 10;
     background-color: lightgrey;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.titulo1{
-    grid-column: 1 / 5; 
+
+.titulo1 {
+    grid-column: 1 / 5;
     grid-row: 1;
     text-align: center;
-    }
-.titulo2{
-    grid-column: 1 / 5; 
+}
+
+.titulo2 {
+    grid-column: 1 / 5;
     grid-row: 3;
     text-align: center;
-    }
-.titulo3{
-    grid-column: 1 / 5; 
+}
+
+.titulo3 {
+    grid-column: 1 / 5;
     grid-row: 5;
     text-align: center;
-    }
-.titulo4{
-    grid-column: 1 / 5; 
+}
+
+.titulo4 {
+    grid-column: 1 / 5;
     grid-row: 7;
     text-align: center;
-    }
-.titulo5{
-    grid-column: 1 / 5; 
+}
+
+.titulo5 {
+    grid-column: 1 / 5;
     grid-row: 9;
     text-align: center;
-    }    
+}
 
-footer{
-    border: 1px solid blue;
+footer {
     margin-top: 2%;
     margin-bottom: 1%;
     text-align: center;

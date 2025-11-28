@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #686767;
+    height: 90vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(3, auto);
+    justify-items: center;
+
+}
+
+.contacto {
+    background: #cecccc;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 350px;
+    margin: auto;
+    grid-column: 2 / 3;
+    grid-row: 1;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    font-size: 18px;
+}
+
+a {
+    border: 1px solid rgb(255, 255, 255);
+    grid-column: 2 / 3;
+    grid-row: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 40px;
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    border: 3px solid rgb(0, 0, 0);
+    grid-column: 2 / 3;
+    grid-row: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 40px;
+    text-decoration: none;
+    color: rgb(65, 65, 65);
+    background-color: white;
+}
