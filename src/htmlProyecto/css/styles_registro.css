@@ -1,0 +1,11 @@
+.reg1{
+    border: 10px solid blue;
+    width: 15vh;
+    height: auto;
+}
+.reg1:hover{
+    transform: skew(30deg, 20deg);
+}
+body{
+    background-color: rgb(167, 167, 167);
+}

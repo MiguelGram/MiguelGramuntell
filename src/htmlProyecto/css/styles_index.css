@@ -2,13 +2,11 @@ body{
     background-color: rgb(144, 139, 139);
 }
 header{
-    border: 1px solid red;
     text-align: center;
     margin-top: 1%;
 }
 nav{
     text-align: center;
-    border: 1px solid purple;
     margin-top: 1%;
 }
 a{
@@ -16,11 +14,11 @@ a{
     color: rgb(251, 251, 251);
 }
 .main{
-    border: 1px solid yellow;
     background-image: url(/img/fondoP.jpg);
     height: auto;
     background-size: cover;
     color: white;
+    padding: 5vh;
     background-position: center;
 }
 .main::before{
@@ -37,7 +35,7 @@ a{
 .promo{
     margin-top: 15vh;
     margin-bottom: 15vh;
-    border: 1px solid red;
+    padding-bottom: 4vh;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -50,14 +48,13 @@ a{
 }
 .promoh1{
     max-width: 30vw;
-    border: 1px solid blue;
     font-size: 3vh;
     text-align: center;
     margin-right: 2%;
 }
 .menu{
     margin-right:1%;
-    border: 1px solid blue;
+    border: 1px solid rgb(136, 136, 161);
     border-radius: 8px;
     width: 10vw;
     height: 3vh;
@@ -71,10 +68,11 @@ h1{
     color: rgb(255, 255, 255);
 }
 .newsletter{
-    border: 2px solid blue; 
+    height: 6vh;
     background-color: lightgray;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    text-align: center;
     margin-top: 2vh;
 }
 h2{
@@ -85,10 +83,10 @@ h3{
     font-size: medium;
 }
 .destacados{
-    border: 1px solid violet;
     background-color: grey;
     margin-top: 2vh;
     margin-bottom: 2vh;
+    padding: 2vh;
     text-align: center;
 }
 .destacados2{
@@ -104,13 +102,14 @@ h3{
 }
 .carta{
     height: auto;
-    border: 2px solid rgb(39, 38, 38);
+    border: 2px solid rgb(255, 255, 255);
     border-radius: 5%;
     width: 20vw;
     margin: 5vh;
     text-align: center;
     justify-content: center;
     padding: 1vh;
+    background-color: rgb(117, 113, 113);
 }
 .imgcarta{
     height: 30vh;
